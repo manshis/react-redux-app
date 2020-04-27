@@ -5,14 +5,18 @@ import './bootstrap.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
+import configureStore from './redux/configureStore';
+import { Provider as ReactProvider } from 'react-redux'
 
+
+const store = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+    <ReactProvider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ReactProvider>,
   document.getElementById('root')
 );
 
